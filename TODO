@@ -1,4 +1,6 @@
-- Get a Twitter API account
+- Linkify avatar, name, and username
+- Linkify links in tweets
+- Auto-select text areas
 - Expose Twitter rate limit
 - Get a design
 - Release

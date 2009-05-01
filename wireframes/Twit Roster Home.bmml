@@ -1,0 +1,124 @@
+<mockup version="1.0" skin="sketch" measuredW="816" measuredH="722">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="6" y="12" w="800" h="700" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Twit%20Roster%0Ahttp%3A//twitroster.com/</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Title" x="43" y="105" w="-1" h="-1" measuredW="463" measuredH="52" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Twit%20Roster%20_from%20%5BTerralien%5D_</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::TextInput" x="78" y="264" w="186" h="-1" measuredW="69" measuredH="29" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>username</text>
+        <state>focused</state>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::TextInput" x="78" y="303" w="186" h="-1" measuredW="69" measuredH="29" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>username</text>
+        <state>disabled</state>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::TextInput" x="78" y="341" w="186" h="-1" measuredW="69" measuredH="29" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>username</text>
+        <state>disabled</state>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::TextInput" x="78" y="377" w="186" h="-1" measuredW="69" measuredH="29" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>username</text>
+        <state>disabled</state>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="78" y="415" w="186" h="-1" measuredW="69" measuredH="29" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>username</text>
+        <state>disabled</state>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Button" x="133" y="459" w="-1" h="-1" measuredW="55" measuredH="28" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>More</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::MultilineButton" x="106" y="525" w="-1" h="-1" measuredW="109" measuredH="56" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Rosterize%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Title" x="601" y="215" w="-1" h="-1" measuredW="64" measuredH="52" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>By%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Paragraph" x="338" y="341" w="-1" h="-1" measuredW="200" measuredH="140" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Advanced%0A%20%0AYou%20can%20add%20an%20%22extra%22%20section%20for%20things%20that%20aren%27t%20in%20Twitter%2C%20like%20a%20person%27s%20title%2C%20by%20just%20putting%20the%20extra%20stuff%20in%20brackets%20after%20their%20username%20like%20so%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::TextInput" x="340" y="490" w="198" h="-1" measuredW="187" measuredH="29" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>terralien%5C%5BThe%20Business%20Builders%5D</text>
+        <state>disabled</state>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="575" y="282" w="54" h="50" measuredW="141" measuredH="144" zOrder="12" locked="false" isInGroup="-1"/>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Label" x="576" y="340" w="-1" h="-1" measuredW="100" measuredH="22" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Nathaniel%20Talbott</text>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Paragraph" x="636" y="279" w="148" h="53" measuredW="200" measuredH="140" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Just%20release%20Twit%20Roster.%20So%20cool%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Image" x="575" y="373" w="54" h="50" measuredW="141" measuredH="144" zOrder="15" locked="false" isInGroup="-1"/>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Label" x="576" y="431" w="-1" h="-1" measuredW="90" measuredH="22" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Richard%20Powell</text>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Paragraph" x="636" y="370" w="148" h="53" measuredW="200" measuredH="140" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Loving%20the%20design%20I%20did%20for%20Twit%20Roster.</text>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Image" x="575" y="462" w="54" h="50" measuredW="141" measuredH="144" zOrder="18" locked="false" isInGroup="-1"/>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Label" x="576" y="520" w="-1" h="-1" measuredW="51" measuredH="22" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Terralien</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Paragraph" x="636" y="459" w="148" h="53" measuredW="200" measuredH="140" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>The%20latest%20from%20Terralien%3A%20%5Bhttp%3A//twitroster.com/%5D</text>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Paragraph" x="35" y="623" w="741" h="43" measuredW="200" measuredH="140" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>*Need%20someone%20to%20collaborate%20with%20on%20the%20software%20for%20your%20new%20or%20growing%20business%3F*%20Terralien%20comes%20alongside%20business%20owners%20and%20helps%20them%20design%20and%20develop%20profitable%20software.%20%5BWe%27d%20love%20to%20talk%20about%20the%20business%20you%27re%20building%21%5D</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Paragraph" x="50" y="160" w="525" h="78" measuredW="200" measuredH="140" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Tired%20of%20the%20same%20old%20boring%20list%20of%20the%20people%20involved%20with%20your%20company/organization/club/etc.%3F%20Let%20Twit%20Roster%20help%3A%20just%20type%20everyone%27s%20Twitter%20usernames%20in%20below%20%28no%20passwords%20required%29%20and%20we%27ll%20give%20you%20an%20embed%20code%20that%27ll%20put%20a%20slick%2C%20Twitter-backed%20and%20Twitter-updated%20roster%20on%20your%20page%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Label" x="665" y="127" w="-1" h="-1" measuredW="122" measuredH="22" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>That%27s%20a%20Twit%20Roster%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::Arrow" x="644" y="149" w="98" h="66" measuredW="150" measuredH="100" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <rightArrow>false</rightArrow>
+        <direction>bottom</direction>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

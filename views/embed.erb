@@ -1,9 +1,19 @@
-<h1>Embed Twit Roster</h1>
-
-<p>To embed Twit Roster on your site, copy and paste this snippet:</p>
+<h1>Here's your Embed Code!</h1>
 
 <form>
   <fieldset>
-    <textarea name="embed"><%= @embed %></textarea>
+    <p>Just take this snippet of HTML and put it anywhere on the page (or pages) where you want your Twit Roster to show up:</p>
+    <textarea name="embed"><%=h(erb(:embed_js, :locals => {:sanitize => false}, :layout => false)) %></textarea>
+    
+    <p>Advanced: You can style your Twit Roster however you like: it gets embedded in your page and will honor your stylesheet. Here's a sample CSS snippet that can help you get started:</p>
+    <textarea name="css"><%=h(erb(:embed_css, :layout => false)) %></textarea>
   </fieldset>
 </form>
+
+<h2>Preview</h2>
+
+<p>(Extra section omitted, but will show up on your page.)</p>
+
+<%= erb(:embed_js, :locals => {:sanitize => true}, :layout => false) %>
+
+<p><a href="/">Make Another!</a></p>

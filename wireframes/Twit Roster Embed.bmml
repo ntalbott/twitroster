@@ -1,0 +1,87 @@
+<mockup version="1.0" skin="sketch" measuredW="816" measuredH="722">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="6" y="12" w="800" h="700" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Embed%20-%20Twit%20Roster%0Ahttp%3A//twitroster.com/embed</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Title" x="43" y="105" w="-1" h="-1" measuredW="460" measuredH="52" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Here%27s%20your%20Embed%20Code%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Paragraph" x="50" y="160" w="525" h="43" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Just%20take%20this%20snippet%20of%20HTML%20and%20put%20it%20anywhere%20on%20the%20page%20%28or%20pages%29%20where%20you%20want%20your%20Twit%20Roster%20to%20show%20up%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::TextArea" x="51" y="214" w="493" h="140" measuredW="200" measuredH="140" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%3Cdiv%20id%3D%22twitroster%22%3E%3C/div%3E%0A%3Cscript%20type%3D%22text/javascript%22%20src%3D%22http%3A//twitroster.com/js%3Fblahblahblah%22%3E%3C/script%3E</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::Paragraph" x="51" y="380" w="493" h="78" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Advanced%3A%0A%20%0AYou%20can%20style%20your%20Twit%20Roster%20however%20you%20like%3A%20it%20gets%20embedded%20in%20your%20page%20and%20will%20honor%20your%20stylesheet.%20Here%27s%20a%20sample%20CSS%20snippet%20that%20can%20help%20you%20get%20started%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::TextArea" x="52" y="459" w="492" h="122" measuredW="200" measuredH="140" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%23twitroster%20%7B%0A%7D</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::Title" x="583" y="133" w="-1" h="-1" measuredW="158" measuredH="52" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Preview%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::Label" x="590" y="200" w="176" h="39" measuredW="313" measuredH="22" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28Extra%20section%20omitted%2C%20but%20will%20show%20up%20on%20your%20page.%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::Image" x="583" y="257" w="54" h="50" measuredW="141" measuredH="144" zOrder="8" locked="false" isInGroup="-1"/>
+    <control controlID="53" controlTypeID="com.balsamiq.mockups::Label" x="584" y="315" w="-1" h="-1" measuredW="55" measuredH="22" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Billy%20Bob</text>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::Paragraph" x="644" y="254" w="148" h="53" measuredW="200" measuredH="140" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Wow%2C%20Twit%20Roster%20is%20so%20cool%21%20Just%20what%20I%20needed.</text>
+      </controlProperties>
+    </control>
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::Image" x="583" y="348" w="54" h="50" measuredW="141" measuredH="144" zOrder="11" locked="false" isInGroup="-1"/>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::Label" x="584" y="406" w="-1" h="-1" measuredW="75" measuredH="22" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Joe%20Schmoe</text>
+      </controlProperties>
+    </control>
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::Paragraph" x="644" y="345" w="148" h="53" measuredW="200" measuredH="140" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Twit%20Roster%20keeps%20the%20page%20looking%20so%20fresh.</text>
+      </controlProperties>
+    </control>
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::Image" x="583" y="437" w="54" h="50" measuredW="141" measuredH="144" zOrder="14" locked="false" isInGroup="-1"/>
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::Label" x="584" y="495" w="-1" h="-1" measuredW="102" measuredH="22" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Fred%27s%20Auto%20Parts</text>
+      </controlProperties>
+    </control>
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::Paragraph" x="644" y="434" w="148" h="53" measuredW="200" measuredH="140" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Our%20company%20is%20just%20loving%20Twit%20Roster%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::Paragraph" x="35" y="630" w="741" h="43" measuredW="200" measuredH="140" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>*Need%20someone%20to%20collaborate%20with%20on%20the%20software%20for%20your%20new%20or%20growing%20business%3F*%20Terralien%20comes%20alongside%20business%20owners%20and%20helps%20them%20design%20and%20develop%20profitable%20software.%20%5BWe%27d%20love%20to%20talk%20about%20the%20business%20you%27re%20building%21%5D</text>
+      </controlProperties>
+    </control>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::MultilineButton" x="601" y="550" w="-1" h="-1" measuredW="140" measuredH="56" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Make%20Another%21</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

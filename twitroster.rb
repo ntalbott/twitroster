@@ -24,8 +24,7 @@ end
 post '/embed' do
   @users = params[:user].reject{|e| !e || e == ""}.collect{|e| User.new(e)}
   if @users.collect{|u| u.valid?}.all?
-    embed_params = @users.collect{|e| e.as_param}.join("&")
-    @embed = %(<script type="text/javascript" src="http://#{HOST}/js?#{embed_params}"></script>)
+    @embed = @users.collect{|e| e.as_param}.join("&")
     erb :embed
   else
     erb :index
@@ -37,6 +36,8 @@ get '/js' do
 
   @users = params[:u].collect{|e| User.new(e)}
   @users.each{|e| e.load}
+  
+  @sanitize = (params[:s] == "1")
 
   @roster = erb :roster, :layout => false
 
@@ -128,5 +129,36 @@ class Twitter
   def self.cache_write(key, response)
     File.open(CACHE_DIR + "/twitter/#{key}", 'w'){|f| f.write(response.body)}
     response
+  end
+end
+
+helpers do
+  include Rack::Utils
+  alias_method :h, :escape_html
+  
+  def auto_link_urls(text) # Adapted from Rails 2.3.2
+    text.gsub(%r{(https?://|www\.)[^\s<]+}) do
+      href = $&
+      punctuation = ''
+      left, right = $`, $'
+      # detect already linked URLs and URLs in the middle of a tag
+      if left =~ /<[^>]+$/ && right =~ /^[^>]*>/
+        # do not change string; URL is alreay linked
+        href
+      else
+        # don't include trailing punctuation character as part of the URL
+        if href.sub!(/[^\w\/-]$/, '') and punctuation = $& and opening = {']' => '[', ')' => '(', '}' => '{'}[punctuation]
+          if href.scan(opening).size > href.scan(punctuation).size
+            href << punctuation
+            punctuation = ''
+          end
+        end
+
+        link_text = block_given?? yield(href) : href
+        href = 'http://' + href unless href.index('http') == 0
+
+        (%(<a href=#{href}>#{h(link_text)}</a>) + punctuation)
+      end
+    end
   end
 end

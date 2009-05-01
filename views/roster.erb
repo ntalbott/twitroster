@@ -2,22 +2,22 @@
   <div class="user">
     <% if user.valid? %>
       <div class="avatar">
-        <img src="<%= user.avatar %>">
+        <a href="http://twitter.com/<%= user.username %>"><img src="<%= user.avatar %>"></a>
       </div>
       <div class="name">
-        <%= user.name %>
+        <a href="http://twitter.com/<%= user.username %>"><%= user.name %></a>
       </div>
       <div class="username">
-        <%= user.username %>
+        <a href="http://twitter.com/<%= user.username %>"><%= user.username %></a>
       </div>
-      <% if user.extra %>
+      <% if !@sanitize && user.extra %>
         <div class="extra">
           <%= user.extra %>
         </div>
       <% end %>
       <div class="tweets">
         <% user.tweets[0..0].each do |tweet| %>
-          <div class="tweet"><%= tweet %></div>
+          <div class="tweet"><%= auto_link_urls(tweet) %></div>
         <% end %>
       </div>
     <% else %>
