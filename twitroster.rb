@@ -1,11 +1,16 @@
-require 'sinatra'
-require 'json'
-require 'httparty'
+require 'rubygems'
 require 'uri'
+
+gem 'sinatra', '~> 0.9'; require 'sinatra'
+gem 'json', '~> 1.1'; require 'json'
+gem 'httparty', '~> 0.4'; require 'httparty'
 
 configure :production, :development do
   CACHE_DIR = File.expand_path(File.dirname(__FILE__) + '/cache')
+  `mkdir -p #{CACHE_DIR}/twitter`
   TWITTER_CACHE_EXPIRY = (60*60) # in seconds
+  TWITTER_STATS_FILE = CACHE_DIR + '/twitter_stats'
+  `touch #{TWITTER_STATS_FILE}`
 end
 
 configure :development do
@@ -33,6 +38,7 @@ end
 
 get '/js' do
   content_type 'text/javascript'
+  response.headers['Expires'] = (Time.now + 300).httpdate
 
   @users = params[:u].collect{|e| User.new(e)}
   @users.each{|e| e.load}
@@ -44,12 +50,20 @@ get '/js' do
   erb :js, :layout => false
 end
 
+get '/stats' do
+  protected!
+  
+  @stats = File.read(TWITTER_STATS_FILE).split(',')
+  @minutes_until_reset = ((Time.at(@stats[2].to_i) - Time.now)/60).round
+  erb :stats
+end
+
 class User
   def self.valid_username?(username)
     (/\A\w+\z/ =~ username)
   end  
 
-  attr_reader :username, :name, :avatar, :error, :tweets, :extra
+  attr_reader :username, :name, :avatar, :error, :extra
 
   def initialize(username='')
     @username = username
@@ -85,6 +99,11 @@ class User
     @tweets = timeline.collect{|e| e["text"]}
   rescue Twitter::Error => e
     return invalid(e.message)
+  end
+  
+  def tweets
+    filtered = @tweets.reject{|e| /\A@/ =~ e}
+    (filtered.empty? ? [@tweets.first] : filtered)
   end
   
   def as_param
@@ -128,6 +147,9 @@ class Twitter
   
   def self.cache_write(key, response)
     File.open(CACHE_DIR + "/twitter/#{key}", 'w'){|f| f.write(response.body)}
+    File.open(TWITTER_STATS_FILE, 'w') do |f|
+      f.write %w(X-RateLimit-Limit X-RateLimit-Remaining X-RateLimit-Reset).collect{|h| response.headers[h.downcase]}.join(',')
+    end
     response
   end
 end
@@ -160,5 +182,16 @@ helpers do
         (%(<a href=#{href}>#{h(link_text)}</a>) + punctuation)
       end
     end
+  end
+  
+  def protected!
+    response['WWW-Authenticate'] = %(Basic realm="Twit Roster Admin") and \
+    throw(:halt, [401, "Not authorized\n"]) and \
+    return unless authorized?
+  end
+
+  def authorized?
+    @auth ||=  Rack::Auth::Basic::Request.new(request.env)
+    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['admin', 'r0st3r1z3!']
   end
 end

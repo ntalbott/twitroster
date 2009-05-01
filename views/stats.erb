@@ -1,0 +1,14 @@
+<dl>
+  <dt>Limit</dt>
+  <dd><%= @stats[0] %></dd>
+  <dt>Remaining Requests</dt>
+  <dd><%= @stats[1] %></dd>
+  <dt>Resets In</dt>
+  <dd>
+    <% if @minutes_until_reset > 0 %>
+      <%= @minutes_until_reset %> minutes
+    <% else %>
+      On next request
+    <% end %>
+  </dd>
+</dl>

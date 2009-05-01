@@ -3,10 +3,10 @@
 <form>
   <fieldset>
     <p>Just take this snippet of HTML and put it anywhere on the page (or pages) where you want your Twit Roster to show up:</p>
-    <textarea name="embed"><%=h(erb(:embed_js, :locals => {:sanitize => false}, :layout => false)) %></textarea>
+    <textarea name="embed" class="copyable"><%=h(erb(:embed_js, :locals => {:sanitize => false}, :layout => false)) %></textarea>
     
     <p>Advanced: You can style your Twit Roster however you like: it gets embedded in your page and will honor your stylesheet. Here's a sample CSS snippet that can help you get started:</p>
-    <textarea name="css"><%=h(erb(:embed_css, :layout => false)) %></textarea>
+    <textarea name="css" class="copyable"><%=h(erb(:embed_css, :layout => false)) %></textarea>
   </fieldset>
 </form>
 
