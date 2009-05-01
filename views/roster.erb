@@ -1,0 +1,27 @@
+<% @users.each do |user| %>
+  <div class="user">
+    <% if user.valid? %>
+      <div class="avatar">
+        <img src="<%= user.avatar %>">
+      </div>
+      <div class="name">
+        <%= user.name %>
+      </div>
+      <div class="username">
+        <%= user.username %>
+      </div>
+      <% if user.extra %>
+        <div class="extra">
+          <%= user.extra %>
+        </div>
+      <% end %>
+      <div class="tweets">
+        <% user.tweets[0..0].each do |tweet| %>
+          <div class="tweet"><%= tweet %></div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="error">Error with <%= user.username %>: <%= user.error %></div>
+    <% end %>
+  </div>
+<% end %>

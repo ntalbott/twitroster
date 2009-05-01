@@ -1,0 +1,25 @@
+<h1>Twit Roster</h1>
+
+<p>Enter the twitter handles of your crew, and we'll give you some embed code for your site:</p>
+
+<form action="/embed" method="POST">
+  <fieldset id="users">
+    <div style="display:none" id="user_input_prototype">
+      <%= erb :user_input, :locals => {:user => User.new}, :layout => false %>
+    </div>
+    <% @users.each do |user| %>
+      <div>
+        <%= erb :user_input, :locals => {:user => user}, :layout => false %>
+      </div>
+    <% end %>
+  </fieldset>
+  <fieldset>
+    <button id="more_users" style="display:none">Add More Users</button><br />
+    <input type="submit" value="Rosterize!" />
+  </fieldset>
+</form>
+
+<p>Here's an example roster:</p>
+
+<div id="twitroster"></div>
+<script type="text/javascript" src="/js?u=ntalbott[Founder]&u=duffomelia[Developer]"></script>
