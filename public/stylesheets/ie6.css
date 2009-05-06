@@ -1,0 +1,6 @@
+#header { background-image: url(/images/wire.gif); }
+#footer { background-image: url(/images/footer_buildings.gif); }
+#content { display: inline; }
+.build h2 { background-image: url(/images/enter_twitter_names.gif); position: relative; }
+#preview h2 	{ background-image: url(/images/preview_top.gif); }
+#preview.created_by h2 	{ background-image: url(/images/brought_to_you_bird.gif); }
