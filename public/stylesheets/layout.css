@@ -27,6 +27,7 @@ a           { color: #267799; text-decoration: none; outline: none; }
 
 html { height: 100%; }
 body { background: #d7e9ee url(/images/bg_gradient.png) repeat-x -50% 0; height: 100%; text-align: center; }
+
 #page_container { position: relative; min-height: 100%; }
 #container { width: 940px; margin: 0 auto; overflow: auto; text-align: left; }
 
@@ -76,8 +77,8 @@ form.build { float: left; width: 226px; margin-right: 14px; }
 
 #preview { float: right; width: 331px; text-shadow: none; color: #425b65; background: transparent url(/images/roster_bot.png) no-repeat 0 100%; margin-top: 59px; }
 
-	#preview h2 	{ height: 59px; background: transparent url(/images/preview_top.png) no-repeat 0 0; margin: 0; text-indent: -5000px; margin-top: -59px; }
-	#preview.created_by h2 	{ background: transparent url(/images/brought_to_you_bird.png) no-repeat 0 0; }
+	#preview h2 { height: 59px; background: transparent url(/images/preview_top.png) no-repeat 0 0; margin: 0; text-indent: -5000px; margin-top: -59px; position: relative; }
+	#preview.created_by h2 	{ background-image: url(/images/brought_to_you_bird.png); }
 	
 	#preview #twitroster, #preview p { padding: 0 55px 0 40px; font-size: 12px; }
 	#preview p { margin-bottom: 1em; }
