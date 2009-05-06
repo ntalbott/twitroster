@@ -1,19 +1,22 @@
-<h1>Here's your Embed Code!</h1>
+<div id="content">
+  <h1>Here's your Embed Code!</h1>
+  
+  <form>
+    <fieldset>
+      <h2 class="copy_this">Copy this:</h2>
+      <p>Just take this snippet of HTML and put it anywhere on the page (or pages) where you want your Twit Roster to show up:</p>
+      <textarea name="embed" class="copyable"><%=h(erb(:embed_js, :locals => {:sanitize => false}, :layout => false)) %></textarea>
+      
+      <h2 class="and_this">&hellip;and this:</h2>
+      <p>You can style your Twit Roster however you like: it gets embedded in your page and will honor your stylesheet. Here's a sample CSS snippet that can help you get started:</p>
+      <textarea name="css" class="copyable"><%=h(erb(:embed_css, :layout => false)) %></textarea>
+    </fieldset>
+  </form>
+  <p><a href="/" class="btn_makeanother">Make Another!</a></p>
+</div>
 
-<form>
-  <fieldset>
-    <p>Just take this snippet of HTML and put it anywhere on the page (or pages) where you want your Twit Roster to show up:</p>
-    <textarea name="embed" class="copyable"><%=h(erb(:embed_js, :locals => {:sanitize => false}, :layout => false)) %></textarea>
-    
-    <p>Advanced: You can style your Twit Roster however you like: it gets embedded in your page and will honor your stylesheet. Here's a sample CSS snippet that can help you get started:</p>
-    <textarea name="css" class="copyable"><%=h(erb(:embed_css, :layout => false)) %></textarea>
-  </fieldset>
-</form>
-
-<h2>Preview</h2>
-
-<p>(Extra section omitted, but will show up on your page.)</p>
-
-<%= erb(:embed_js, :locals => {:sanitize => true}, :layout => false) %>
-
-<p><a href="/">Make Another!</a></p>
+<div id="preview">
+  <h2>Preview</h2>  
+  <p><small>(&ldquo;Extra&rdquo; section omitted from the preview, but will show up on your page.)</small></p>
+  <%= erb(:embed_js, :locals => {:sanitize => true}, :layout => false) %>  
+</div>

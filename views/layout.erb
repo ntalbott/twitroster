@@ -3,27 +3,29 @@
     <title>Twit Roster</title>
     
     <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/typography.css" media="all" />
+    <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/typography.css" media="all" /> -->
     <link rel="stylesheet" type="text/css" href="/stylesheets/layout.css" media="all" />
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+    <script src="/javascripts/jquery.default-input.js"></script>
     <script type="text/javascript">
       jQuery(function($) {
         $('#more_users').show().click(function() {
           for(i=0; i<5; i++) {
-            $('#user_input_prototype').clone().appendTo('#users').show();
+            $('#user_input_prototype').clone(true).appendTo('#users').show();
           }
+          $('#users input.text').defaultInput();
           return false;
         });
-        $('textarea.copyable').
-          click(function(){this.select();});
+        $('textarea.copyable').click(function(){this.select();});
+        $('#users input.text').defaultInput();
       });
     </script>
   </head>
   <body>
     <div id="page_container">
       <div id="header">
-        <h1 id="logo">Twit Roster <em>by <a href="http://terralien.com">Terralien</a></em></h1>
+        <h1 id="logo"><a href="/" class="home">Twit Roster</a> <em>by <a href="http://terralien.com" class="terralien">Terralien</a></em></h1>
       </div>
       <div id="container">
         <%= yield %>

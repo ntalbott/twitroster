@@ -28,16 +28,6 @@ h4 { font-size: 1.07em; font-weight: bold; margin-bottom: 1.25em; }
 h5 { font-size: 1em; font-weight: bold; margin-bottom: 0; }
 h6 { font-size: 1em; font-weight: bold; }
 
-h1 img, h2 img, h3 img, 
-h4 img, h5 img, h6 img { margin: 0; }
-
-h1.small {
-	font: normal 12px/1 "Gill Sans", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	text-transform: uppercase;
-	color: #8c8c8c;
-	letter-spacing: 2px;
-	margin-bottom: 1em; }
-
 
 /* Text elements
 -------------------------------------------------------------- */
@@ -51,8 +41,8 @@ p           { margin: 0 0 .8em; }
 img.right	{ float: right; }
 
 a:focus, 
-a:hover     { color: #377bbf; }
-a           { color: #377bbf; text-decoration: none; outline: none; }
+a:hover     { color: #267799; border-bottom: 1px dotted; }
+a           { color: #267799; text-decoration: none; outline: none; }
 
 blockquote  { margin: .8em 0; padding: 0 1.5em; }
 
