@@ -1,33 +1,38 @@
-<h1>Twit Roster <i>by <a href="http://terralien.com">Terralien</a></i></h1>
+<div id="content">
+  <p>Tired of the same old boring list of the people involved with your company/organization/club/etc.? Let TwitRoster help: just type everyone&rsquo;s Twitter usernames in below (no passwords required) and we&rsquo;ll give you an embed code that&rsquo;ll put a slick, Twitter-backed and Twitter-updated roster on your page:</p>
+  <form class="build" action="/embed" method="POST">
+    <fieldset>
+      <h2 class="legend">Enter Twitter Names:</h2>
+      <ol id="users">
+        <li id="user_input_prototype">
+          <%= erb :user_input, :locals => {:user => User.new}, :layout => false %>
+        </li>
+      <% @users.each do |user| %>
+        <li>
+          <%= erb :user_input, :locals => {:user => user}, :layout => false %>
+        </li>
+      <% end %>
+      </ol>
+    </fieldset>
+    <fieldset>
+      <a href="#" id="more_users">add more&hellip;</a><br />
+      <input type="image" src="/images/rosterize.png" alt="Rosterize!" value="Rosterize!" class="submit" />
+    </fieldset>
+  </form>
+  
+  <div class="tips">
+    <p>You can add an "extra" section for things that aren't in Twitter, like a person's title, by just putting the extra stuff in brackets after their username like so:</p>
+    <form>
+      <fieldset>
+        <input type="text" class="text" name="example" disabled="disabled" value="terralien[The Business Builders]" />
+      </fieldset>
+    </form>
+  </div>
+  
+</div>
 
-<p>Enter the twitter handles of your crew, and we'll give you some embed code for your site:</p>
-
-<form action="/embed" method="POST">
-  <fieldset id="users">
-    <div style="display:none" id="user_input_prototype">
-      <%= erb :user_input, :locals => {:user => User.new}, :layout => false %>
-    </div>
-    <% @users.each do |user| %>
-      <div>
-        <%= erb :user_input, :locals => {:user => user}, :layout => false %>
-      </div>
-    <% end %>
-  </fieldset>
-  <fieldset>
-    <button id="more_users" style="display:none">Add More Users</button><br />
-    <input type="submit" value="Rosterize!" />
-  </fieldset>
-</form>
-
-<p>Advanced: You can add an "extra" section for things that aren't in Twitter, like a person's title, by just putting the extra stuff in brackets after their username like so:</p>
-
-<form>
-  <fieldset>
-    <input type="text" name="example" disabled="disabled" value="terralien[The Business Builders]" />
-  </fieldset>
-</form>
-
-<p>By:</p>
-
-<div id="twitroster"></div>
-<script type="text/javascript" src="/js?u=terralien&u=ntalbott&u=misterpowell"></script>
+<div class="created_by">
+  <h2>Brought to You By:</h2>
+  <div id="twitroster"></div>
+  <script type="text/javascript" src="/js?u=terralien&u=ntalbott&u=misterpowell"></script>
+</div>

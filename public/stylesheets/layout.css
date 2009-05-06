@@ -1,0 +1,63 @@
+/* @override http://localhost:4567/stylesheets/layout.css */
+
+html { height: 100%; }
+body { background: #d7e9ee url(/images/bg_gradient.png) repeat-x -50% 0; height: 100%; }
+
+#header { width: 100%; height: 187px; margin-bottom: 20px; background: transparent url(/images/wire.png) no-repeat 50% 0; }
+#logo { width: 940px; height: 180px; margin: 0 auto; text-indent: -5000px; }
+
+#page_container { position: relative; min-height: 100%; }
+#container { width: 940px; margin: 0 auto; overflow: auto; }
+
+#footer { width: 100%; background: transparent url(/images/footer_buildings.png) repeat-x -50% 100%; position: relative; height: 235px; margin-top: -235px; clear: both; }
+
+.call_terralien { clear: both; width: 740px; margin: 0 auto; font-style: italic; text-align: center; color: #4a707f; padding: 30px 0 255px; }
+
+/* pad the bottom of the interior content to avoid overlap with footer buildings */
+#content,
+.created_by {  }
+
+#content { float: left; width: 510px; margin-left: 80px; }
+
+form { }
+
+	form ol { list-style: none; margin: 0; }
+	form li { margin-bottom: 6px; }
+	input.text { font-size: 13px; padding: 3px; margin: 0; }
+
+
+form.build { float: left; width: 226px; margin-right: 14px; }
+
+	.build h2 { height: 23px; background: transparent url(/images/enter_twitter_names.png) no-repeat 0 0; text-indent: -5000px; margin-left: -20px; margin-bottom: 3px; }
+	.build input.text { width: 100%; }
+	.build input.submit { margin-top: 5px; }
+	
+	#user_input_prototype { display: none; }
+	#more_users { display: none; font-weight: bold; font-size: 14px; margin-left: 5px; }
+
+
+.tips { float: right; width: 270px; margin-top: 9px; background: transparent url(/images/tips_top.png) no-repeat 0 0; }
+
+	.tips p { margin: 25px 80px 15px 15px; font-style: italic; color: #5d783d; }
+	.tips form { position: relative; top: 14px; background: transparent url(/images/tips_bot.png) no-repeat 0 100%; padding-bottom: 18px; }
+	.tips fieldset { margin-top: -18px; }
+	.tips input.text { margin: 0 0 0 15px; width: 190px;}
+	
+	
+.created_by { float: right; width: 331px; text-shadow: none; color: #425b65; }
+
+	.created_by h2 { height: 52px; background: transparent url(/images/brought_to_you_bird.png) no-repeat 0 0; margin: 0; text-indent: -5000px; }
+	.created_by #twitroster { background: transparent url(/images/roster_bot.png) no-repeat 0 100%; padding: 0 55px 15px 40px; font-size: 12px; }
+	.created_by .username { display: none; }
+	.created_by .name a { color: inherit; }
+
+#twitroster ul { list-style: none; margin: 0 0 1em 0; }
+
+	#twitroster li { margin-bottom: 1em; position: relative; }
+	#twitroster .avatar { position: absolute; }
+	#twitroster .name,
+	#twitroster .username { font-weight: bold; }
+	#twitroster .name,
+	#twitroster .username,
+	#twitroster .tweets { padding-left: 60px; }
+	#twitroster a:hover { border-bottom: 1px dotted; }

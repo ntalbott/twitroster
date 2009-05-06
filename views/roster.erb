@@ -1,5 +1,6 @@
+<ul>
 <% @users.each do |user| %>
-  <div class="user">
+  <li class="user">
     <% if user.valid? %>
       <div class="avatar">
         <a href="http://twitter.com/<%= user.username %>"><img src="<%= user.avatar %>"></a>
@@ -23,5 +24,6 @@
     <% else %>
       <div class="error">Error with <%= user.username %>: <%= user.error %></div>
     <% end %>
-  </div>
+  </li>
 <% end %>
+</ul>

@@ -1,0 +1,135 @@
+/* @override http://localhost:4567/stylesheets/typography.css */
+
+/* -------------------------------------------------------------- 
+   
+   typography.css
+   * Sets up some sensible default typography.
+      
+-------------------------------------------------------------- */
+
+
+body { 
+  font-size: 13px;
+  line-height: 1.4;
+  color: #261F19;
+  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  text-shadow: #fff 1px 1px 1px; }
+
+
+/* Headings
+-------------------------------------------------------------- */
+
+h1,h2,h3,h4,h5,h6 { font-weight: normal; color: #333; clear: both; }
+
+h1 { font-size: 20px; font-weight: bold; line-height: 1; margin-bottom: 0.5em; }
+h2 { font-size: 18px; margin-bottom: 0.5em; }
+h3 { font-size: 1.25em; margin-bottom: 1em; }
+h4 { font-size: 1.07em; font-weight: bold; margin-bottom: 1.25em; }
+h5 { font-size: 1em; font-weight: bold; margin-bottom: 0; }
+h6 { font-size: 1em; font-weight: bold; }
+
+h1 img, h2 img, h3 img, 
+h4 img, h5 img, h6 img { margin: 0; }
+
+h1.small {
+	font: normal 12px/1 "Gill Sans", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	text-transform: uppercase;
+	color: #8c8c8c;
+	letter-spacing: 2px;
+	margin-bottom: 1em; }
+
+
+/* Text elements
+-------------------------------------------------------------- */
+
+p           { margin: 0 0 .8em; }
+
+.entry p img		  { float: left; margin: 0 1em 1.5em 0; border: 1px solid #ddd; padding: 4px; }
+.entry p img.right    { float: right; margin: 0 0 1em 1.5em; }
+.entry p img.pushleft { margin-left: -38px; }
+
+img.right	{ float: right; }
+
+a:focus, 
+a:hover     { color: #377bbf; }
+a           { color: #377bbf; text-decoration: none; outline: none; }
+
+blockquote  { margin: .8em 0; padding: 0 1.5em; }
+
+strong      { font-weight: bold; }
+em,dfn      { font-style: italic; }
+dfn         { font-weight: bold; }
+sup, sub    { line-height: 0; }
+
+abbr, 
+acronym     { border-bottom: 1px dotted #666; cursor:help; }
+address     { margin: 0 0 1.5em; }
+del         { color:#666; }
+
+pre,code    { margin: 1.5em 0; white-space: pre; }
+pre,code,tt { font: 1em 'andale mono', 'lucida console', monospace; line-height: 1.5; } 
+
+.highlight 	{ background: #fdffd3; }
+
+hr 			{ display: none; }
+
+
+/* Lists
+-------------------------------------------------------------- */
+
+li ul, 
+li ol		{ margin: 0 1.5em; }
+ul,
+ol		    { margin: 0 1.5em 1.5em 1.5em; }
+
+ul         { list-style: disc; }
+ol         { list-style: decimal; }
+
+dl         { margin: 0 0 1.5em 0; }
+dl dt      { font-weight: bold; }
+dd         { margin-left: 1.5em;}
+
+.entry ul { list-style: square; }
+
+ul.two_col { float: left; clear: both; width: 100%; }
+ul.two_col li { float: left; width: 46%; }
+
+ul.ruled { list-style: none; margin-left: 0; margin-right: 0; border-top: 1px solid;}
+ul.ruled li { border-bottom: 1px solid; padding: .3em 0; }
+ul.ruled li.simple { border-bottom: none; }
+ul.ruled, ul.ruled li { border-color: #ddd; }
+
+/* Tables
+-------------------------------------------------------------- */
+
+table       { margin-bottom: 1.4em; width:100%; }
+th          { font-weight: bold; background: #d9d9d9; text-align: center; }
+th,td       { padding: 4px 10px 4px 5px; }
+tr.odd td  { background: #fffce5; }
+tfoot       { font-style: italic; }
+caption     { background: #eee; }
+
+
+/* Icons
+-------------------------------------------------------------- */
+
+a.icon { background: transparent url(../images/x.gif) 0 0 no-repeat; padding-left: 18px; padding-bottom: 1px; }
+a.icon:hover { border: none !important; text-decoration: underline !important; }
+
+a.icon.weblink 				{ background-image: url(../images/icon_linkarrow.gif); }
+a.icon.generic 				{ background-image: url(../images/icon_generic.gif); }
+a.icon.acrobat, a.icon.pdf	{ background-image: url(../images/icon_acrobat.gif); }
+a.icon.excel, a.icon.xls	{ background-image: url(../images/icon_excel.gif); }
+a.icon.word, a.icon.doc 	{ background-image: url(../images/icon_word.gif); }
+a.icon.powerpoint, a.icon.ppt { background-image: url(../images/icon_powerpoint.gif); }
+a.icon.video				{ background-image: url(../images/icon_video.gif); float: left; line-height: 15px; }
+
+/*a.icon img { margin-left: -18px; margin-top: -2px; }*/
+
+li.icon { background-image: none !important; padding-left: 10px !important; margin-bottom: .2em; }
+li.icon a { padding-left: 20px }
+	
+
+
+/* Misc classes
+-------------------------------------------------------------- */
