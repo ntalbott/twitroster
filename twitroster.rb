@@ -135,7 +135,9 @@ class Twitter
       response
     end
   rescue Timeout::Error => e
-    raise Error.new("Twitter timed out.")
+    raise Error.new("Twitter timed out; maybe it's down?")
+  rescue Crack::ParseError => e
+    raise Error.new("Bad response from Twitter; maybe it's down?")
   end
   
   def self.cache(key)
