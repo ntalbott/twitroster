@@ -125,12 +125,17 @@ class Twitter
   
   def self.user_timeline(user)
     cache(user) do
-      response = get("/statuses/user_timeline/#{user}.json")
+      response = nil
+      Timeout.timeout(2) do
+        response = get("/statuses/user_timeline/#{user}.json")
+      end
       if response.code.to_i != 200 && error = response["error"]
         raise Error.new("Error getting the timeline for #{user}: #{error}.")
       end
       response
     end
+  rescue Timeout::Error => e
+    raise Error.new("Twitter timed out.")
   end
   
   def self.cache(key)
