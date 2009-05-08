@@ -1,5 +1,7 @@
-- Get a design
+- Add byline to embedded rosters
 - Release
+- Use typhoeus
+- Add analytics tracking
 - Add tests
 - Allow tweaking the id that the HTML gets dumped in to
 - Allow adjustment of how many tweets to show
