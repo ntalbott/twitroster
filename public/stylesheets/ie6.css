@@ -1,6 +1,12 @@
+body { background-image: url(/images/bg_gradient.jpg); }
 #header { background-image: url(/images/wire.gif); }
 #footer { background-image: url(/images/footer_buildings.gif); }
 #content { display: inline; }
 .build h2 { background-image: url(/images/enter_twitter_names.gif); position: relative; }
+.tips { background-image: url(/images/tips_top.gif); }
+.tips form { background-image: url(/images/tips_bot.gif); }
+#preview { background-image: url(/images/roster_bot.gif); }
 #preview h2 	{ background-image: url(/images/preview_top.gif); }
 #preview.created_by h2 	{ background-image: url(/images/brought_to_you_bird.gif); }
+h2.copy_this { background-image: url(/images/copy_this.gif); }
+h2.and_this { background-image: url(/images/and_this.gif); }
