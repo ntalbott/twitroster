@@ -7,20 +7,21 @@ gem 'httparty', '~> 0.4'; require 'httparty'
 gem 'rack-contrib', '~> 0.9'; require 'rack/contrib'
 gem 'tmail', '~> 1.2'
 
-configure :production, :development do
-  CACHE_DIR = File.expand_path(File.dirname(__FILE__) + '/cache')
-  `mkdir -p #{CACHE_DIR}/twitter`
-  TWITTER_CACHE_EXPIRY = (60*60) # in seconds
-  TWITTER_STATS_FILE = CACHE_DIR + '/twitter_stats'
-  `touch #{TWITTER_STATS_FILE}`
-end
-
 configure :development do
   HOST = "localhost:4567"
+  CACHE_DIR = File.expand_path(File.dirname(__FILE__) + '/cache')
 end
 
 configure :production do
   HOST = "twitroster.com"
+  CACHE_DIR = File.expand_path(File.dirname(__FILE__) + '/tmp/cache')
+end
+
+configure :production, :development do
+  `mkdir -p #{CACHE_DIR}/twitter`
+  TWITTER_CACHE_EXPIRY = (60*60) # in seconds
+  TWITTER_STATS_FILE = CACHE_DIR + '/twitter_stats'
+  `touch #{TWITTER_STATS_FILE}`
 end
 
 get '/' do
