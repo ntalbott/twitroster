@@ -8,7 +8,7 @@ gem 'rack-contrib', '~> 0.9'; require 'rack/contrib'
 gem 'tmail', '~> 1.2'
 
 configure :development do
-  HOST = "localhost:4567"
+  HOST = "twitroster.i"
 end
 
 configure :production do
