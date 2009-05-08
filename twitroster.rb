@@ -21,6 +21,7 @@ configure :production, :development do
   TWITTER_CACHE_EXPIRY = (60*60) # in seconds
   TWITTER_STATS_FILE = CACHE_DIR + '/twitter_stats'
   `touch #{TWITTER_STATS_FILE}`
+  TWITTER_TIMEOUT = 4
 end
 
 get '/' do
@@ -126,7 +127,7 @@ class Twitter
   def self.user_timeline(user)
     cache(user) do
       response = nil
-      Timeout.timeout(2) do
+      Timeout.timeout(TWITTER_TIMEOUT) do
         response = get("/statuses/user_timeline/#{user}.json")
       end
       if response.code.to_i != 200 && error = response["error"]
