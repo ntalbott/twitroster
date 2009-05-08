@@ -4,6 +4,8 @@ require 'uri'
 gem 'sinatra', '~> 0.9'; require 'sinatra'
 gem 'json', '~> 1.1'; require 'json'
 gem 'httparty', '~> 0.4'; require 'httparty'
+gem 'rack-contrib', '~> 0.9'; require 'rack/contrib'
+gem 'tmail', '~> 1.2'
 
 configure :production, :development do
   CACHE_DIR = File.expand_path(File.dirname(__FILE__) + '/cache')
@@ -193,5 +195,28 @@ helpers do
   def authorized?
     @auth ||=  Rack::Auth::Basic::Request.new(request.env)
     @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['admin', 'r0st3r1z3!']
+  end
+end
+
+configure :production do
+  class ProductionErrorHandler
+    def initialize(app)
+      @app = app
+    end
+    def call(env)
+      @app.call(env)
+    rescue Exception => e
+      message = "<html><head><title>Twit Error</title></head><body><p>Sorry, we goofed something up. We're looking in to it now...</p></body></html>"
+      [500, {"Content-Type" => "text/html", "Content-Length" => message.size.to_s}, message]
+    end
+  end
+  
+  use ProductionErrorHandler
+
+  set :raise_errors, true
+  use Rack::MailExceptions do |mail|
+    mail.to 'nathaniel@terralien.com'
+    mail.subject '[TWITROSTER ERROR] %s'
+    mail.smtp :authentication => nil
   end
 end
