@@ -21,7 +21,7 @@ configure :production, :development do
   TWITTER_CACHE_EXPIRY = (60*60) # in seconds
   TWITTER_STATS_FILE = CACHE_DIR + '/twitter_stats'
   `touch #{TWITTER_STATS_FILE}`
-  TWITTER_TIMEOUT = 4
+  TWITTER_TIMEOUT = 6
 end
 
 get '/' do
