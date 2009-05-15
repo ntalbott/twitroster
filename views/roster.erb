@@ -2,19 +2,11 @@
 <% @users.each do |user| %>
   <li class="user">
     <% if user.valid? %>
-      <div class="avatar">
-        <a href="http://twitter.com/<%= user.username %>"><img src="<%= user.avatar %>"></a>
-      </div>
-      <div class="name">
-        <a href="http://twitter.com/<%= user.username %>"><%= user.name %></a>
-      </div>
-      <div class="username">
-        <a href="http://twitter.com/<%= user.username %>"><%= user.username %></a>
-      </div>
+      <div class="avatar"><a href="http://twitter.com/<%= user.username %>"><img src="<%= user.avatar %>"></a></div>
+      <div class="name"><a href="http://twitter.com/<%= user.username %>"><%= user.name %></a></div>
+      <div class="username"><a href="http://twitter.com/<%= user.username %>"><%= user.username %></a></div>
       <% if !@sanitize && user.extra %>
-        <div class="extra">
-          <%= user.extra %>
-        </div>
+        <div class="extra"><%= user.extra %></div>
       <% end %>
       <div class="tweets">
         <% user.tweets[0..0].each do |tweet| %>
