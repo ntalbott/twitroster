@@ -42,6 +42,10 @@ end
 get '/js' do
   content_type 'text/javascript'
   response.headers['Expires'] = (Time.now + 300).httpdate
+  
+  unless params[:u]
+    throw :halt, [400, "At least one user is required."]
+  end
 
   @users = params[:u].collect{|e| User.new(e)}
   @users.each{|e| e.load}
