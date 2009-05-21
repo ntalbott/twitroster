@@ -91,9 +91,15 @@ class User
     return if @loaded
 
     @loaded = @valid = true
-    return invalid("We can only currently rosterize usernames with letters, numbers, and/or '_' in them.") unless User.valid_username?(@username)
+    unless User.valid_username?(@username)
+      return invalid("We can only currently rosterize usernames with letters, numbers, and/or '_' in them.")
+    end
 
     timeline = Twitter.user_timeline(@username)
+    
+    if timeline.empty?
+      return invalid("You can't rosterize someone who's never tweeted - you need to have a talk with them about their lack of community.")
+    end
     user = timeline.first["user"]
 
     @name = user["name"]
