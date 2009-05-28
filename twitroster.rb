@@ -104,6 +104,11 @@ class User
     if timeline.empty?
       return invalid("You can't rosterize someone who's never tweeted - you need to have a talk with them about their lack of community.")
     end
+    
+    unless timeline.respond_to?(:first)
+      return invalid("Bad response from Twitter; maybe it's down?")
+    end
+
     user = timeline.first["user"]
 
     @name = user["name"]
@@ -149,7 +154,7 @@ class Twitter
     raise Error.new("Twitter timed out; maybe it's down?")
   rescue Crack::ParseError => e
     raise Error.new("Bad response from Twitter; maybe it's down?")
-  rescue Errno::ECONNRESET => e
+  rescue Errno::ECONNRESET, EOFError => e
     raise Error.new("We were chatting with Twitter and got cut off - try refreshing.")
   end
   
