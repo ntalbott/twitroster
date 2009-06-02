@@ -145,7 +145,7 @@ class Twitter
       Timeout.timeout(TWITTER_TIMEOUT) do
         response = get("/statuses/user_timeline/#{user}.json")
       end
-      if response.code.to_i != 200 && error = response["error"]
+      if response.code.to_i != 200 && error = (response.body ? response["error"] : response.code)
         raise Error.new("Error getting the timeline for #{user}: #{error}.")
       end
       response
