@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'uri'
 
+gem "rack", '~> 1.0'; require 'rack'
 gem 'sinatra', '~> 0.9'; require 'sinatra'
 gem 'json', '~> 1.1'; require 'json'
 gem 'httparty', '~> 0.4'; require 'httparty'
@@ -43,11 +44,13 @@ get '/js' do
   content_type 'text/javascript'
   response.headers['Expires'] = (Time.now + 300).httpdate
   
-  unless params[:u]
+  us = request.query_string.split("&").inject([]){|a,e| k,v = e.split("="); a << v if k =~ /u(?:\[\])?/; a}
+  
+  if us.empty?
     throw :halt, [400, "At least one user is required."]
   end
 
-  @users = params[:u].collect{|e| User.new(e)}
+  @users = us.collect{|e| User.new(e)}
   @users.each{|e| e.load}
   
   @sanitize = (params[:s] == "1")
@@ -125,7 +128,7 @@ class User
   end
   
   def as_param
-    r = "u=#{username}"
+    r = "u[]=#{username}"
     if extra
       r << URI.escape("[#{extra}]")
     end
