@@ -79,7 +79,7 @@ class User
     @username = username
     if /\A(\w+)\[(.+)\]\z/ =~ @username
       @username = $1
-      @extra = $2
+      @extra = URI.decode $2
     end
     @loaded = false
   end
