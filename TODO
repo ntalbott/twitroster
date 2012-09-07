@@ -1,8 +1,0 @@
-- Add byline to embedded rosters
-- Release!
-- Add analytics tracking
-- Add tests
-- Allow tweaking the id that the HTML gets dumped in to
-- Allow adjustment of how many tweets to show
-- Make Twitter caching adaptive to rate limit
-- Cache javascript embeds

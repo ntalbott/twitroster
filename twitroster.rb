@@ -8,12 +8,16 @@ gem 'httparty', '~> 0.4'; require 'httparty'
 gem 'rack-contrib', '~> 0.9'; require 'rack/contrib'
 gem 'tmail', '~> 1.2'
 
+PRODUCTION_HOST = "example.com"
+ADMIN_PASSWORD = "password"
+ADMIN_EMAIL = "bob@example.com"
+
 configure :development do
-  HOST = "twitroster.i"
+  HOST = "twitroster.dev"
 end
 
 configure :production do
-  HOST = "twitroster.com"
+  HOST = PRODUCTION_HOST
 end
 
 configure :production, :development do
@@ -43,16 +47,16 @@ end
 get '/js' do
   content_type 'text/javascript'
   response.headers['Expires'] = (Time.now + 300).httpdate
-  
+
   us = request.query_string.split("&").inject([]){|a,e| k,v = e.split("="); a << v if k =~ /u(?:\[\])?/; a}
-  
+
   if us.empty?
     throw :halt, [400, "At least one user is required."]
   end
 
   @users = us.collect{|e| User.new(e)}
   @users.each{|e| e.load}
-  
+
   @sanitize = (params[:s] == "1")
 
   @roster = erb :roster, :layout => false
@@ -62,7 +66,7 @@ end
 
 get '/stats' do
   protected!
-  
+
   @stats = File.read(TWITTER_STATS_FILE).split(',')
   @minutes_until_reset = ((Time.at(@stats[2].to_i) - Time.now)/60).round
   erb :stats
@@ -71,7 +75,7 @@ end
 class User
   def self.valid_username?(username)
     (/\A\w+\z/ =~ username)
-  end  
+  end
 
   attr_reader :username, :name, :avatar, :error, :extra
 
@@ -83,17 +87,17 @@ class User
     end
     @loaded = false
   end
-  
+
   def valid?
     load
     @valid
   end
-  
+
   def invalid(message)
     @error = message
     @valid = false
   end
-  
+
   def load
     return if @loaded
 
@@ -103,11 +107,11 @@ class User
     end
 
     timeline = Twitter.user_timeline(@username)
-    
+
     if timeline.empty?
       return invalid("You can't rosterize someone who's never tweeted - you need to have a talk with them about their lack of community.")
     end
-    
+
     unless timeline.respond_to?(:first)
       return invalid("Bad response from Twitter; maybe it's down?")
     end
@@ -121,12 +125,12 @@ class User
   rescue Twitter::Error => e
     return invalid(e.message)
   end
-  
+
   def tweets
     filtered = @tweets.reject{|e| /\A@/ =~ e}
     (filtered.empty? ? [@tweets.first] : filtered)
   end
-  
+
   def as_param
     r = "u[]=#{username}"
     if extra
@@ -139,9 +143,9 @@ end
 class Twitter
   include HTTParty
   base_uri 'twitter.com'
-  
+
   class Error < StandardError; end
-  
+
   def self.user_timeline(user)
     cache(user) do
       response = nil
@@ -160,12 +164,12 @@ class Twitter
   rescue Errno::ECONNRESET, EOFError => e
     raise Error.new("We were chatting with Twitter and got cut off - try refreshing.")
   end
-  
+
   def self.cache(key)
     key = key.gsub(/\W+/, '')
     (cache_read(key) || cache_write(key, yield))
   end
-  
+
   def self.cache_read(key)
     filename = CACHE_DIR + "/twitter/#{key}"
     if File.exist?(filename) && File.mtime(filename) > (Time.now - (TWITTER_CACHE_EXPIRY))
@@ -174,7 +178,7 @@ class Twitter
       nil
     end
   end
-  
+
   def self.cache_write(key, response)
     File.open(CACHE_DIR + "/twitter/#{key}", 'w'){|f| f.write(response.body)}
     File.open(TWITTER_STATS_FILE, 'w') do |f|
@@ -187,7 +191,7 @@ end
 helpers do
   include Rack::Utils
   alias_method :h, :escape_html
-  
+
   def auto_link_urls(text) # Adapted from Rails 2.3.2
     text.gsub(%r{(https?://|www\.)[^\s<]+}) do
       href = $&
@@ -213,7 +217,7 @@ helpers do
       end
     end
   end
-  
+
   def protected!
     response['WWW-Authenticate'] = %(Basic realm="Twit Roster Admin") and \
     throw(:halt, [401, "Not authorized\n"]) and \
@@ -222,7 +226,7 @@ helpers do
 
   def authorized?
     @auth ||=  Rack::Auth::Basic::Request.new(request.env)
-    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['admin', 'r0st3r1z3!']
+    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['admin', ADMIN_PASSWORD]
   end
 end
 
@@ -238,12 +242,12 @@ configure :production do
       [500, {"Content-Type" => "text/html", "Content-Length" => message.size.to_s}, message]
     end
   end
-  
+
   use ProductionErrorHandler
 
   set :raise_errors, true
   use Rack::MailExceptions do |mail|
-    mail.to 'nathaniel@terralien.com'
+    mail.to ADMIN_EMAIL
     mail.subject '[TWITROSTER ERROR] %s'
     mail.smtp :authentication => nil
   end
